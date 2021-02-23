@@ -21,16 +21,16 @@
  */
 
 // TODO Votre code ici bas.
+$server = "localhost";
+$user = 'root';
+$password = '';
+$db = "intro_sql";
 
 try {
-    $maConnexion = ........
-
-    $request = "
-        Ma super requête SQL pour créer une base de données.
-    ";
-
-    $maConnexion->une super méthode pour exécuter ma requete
-
+    $maConnexion = new PDO("intro_sql:host = $server;dbname = $db;charset=Utf8", $user, $password);
+    $maConnexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $request = "Ma super requête SQL pour créer une base de données.";
+    
     echo "La base de données intro_sql a bien été créée.";
 }
 catch (PDOException $exception) {
