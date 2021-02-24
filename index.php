@@ -29,10 +29,14 @@ $db = "intro_sql";
 try {
     $maConnexion = new PDO("mysql:host = $server;dbname = $db;charset=Utf8", $user, $password);
     $maConnexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $request = "Ma super requête SQL pour créer une base de données.";
-    
+
+    $request = "CREATE DATABASE intro_sql";
+    $maConnexion->exec($request);
+
     echo "La base de données intro_sql a bien été créée.";
-   // DROP DATABASE intro_sql;
+    $request = "DROP DATABASE intro_sql";
+    //$maConnexion->exec($request);
+
 }
 catch (PDOException $exception) {
     echo $exception->getMessage();
